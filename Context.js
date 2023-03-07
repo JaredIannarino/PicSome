@@ -15,11 +15,11 @@ function ContextProvider({children}) {
     
     function toggleFavorite(id) {
         const updatedArr = allPhotos.map(photo => {
-            if(photo.id === id) {
-                return {...photo, isFavorite: !photo.isFavorite}
-            }
-            return photo
-        })
+        if (photo.id === id) {
+            return Object.assign({}, photo, { isFavorite: !photo.isFavorite });
+        }
+        return photo;
+        });
         
         setAllPhotos(updatedArr)
     }
